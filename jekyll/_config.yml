@@ -1,7 +1,8 @@
 title: Where's My Documentation?
 short_title: WMD
 description: "A simple blog to showcase my various projects"
-url: "http://localhost:4000"
+#url: "https://blog.lackshan.dev"
+url: ""
 github_username:  Lackshan
 language: en_US
 paginate: 10
