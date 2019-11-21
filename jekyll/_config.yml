@@ -9,6 +9,7 @@ paginate: 10
 paginate_path: "/page/:num/"
 permalink: none
 markdown: kramdown
+future: true
 
 plugins:
   - jekyll-paginate
