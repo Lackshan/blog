@@ -44,7 +44,7 @@ html {
 }
 
 body {
-	max-width: 70%;
+	max-width: 33.33em;
 	margin: 3em auto;
 	padding: .5em;
 }
