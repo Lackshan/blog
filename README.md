@@ -14,5 +14,5 @@ JEKYLL_ENV="production" bundle exec jekyll serve
 ```bash
 JEKYLL_ENV="production" bundle exec jekyll build
 ```
-
-It uses the sudo theme which can be found [here](https://github.com/oneohthree/sudo-jekyll).
+## Credits
+This blog uses the sudo theme which can be found [here](https://github.com/oneohthree/sudo-jekyll).
