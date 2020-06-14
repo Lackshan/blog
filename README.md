@@ -21,7 +21,8 @@ JEKYLL_ENV="production" bundle exec jekyll build
 ### Automated deployment using GitHub Actions
 After every commit, the action defined in ```.github/workflows/github-pages.yml``` will build the site and copy the contents of the resulting ```_site``` folder to the ```gh-pages``` branch.
 
-[Source](https://jekyllrb.com/docs/continuous-integration/github-actions/).
+[Source](https://jekyllrb.com/docs/continuous-integration/github-actions/)
+[Also helpful](https://github.com/MichaelCurrin/jekyll-actions-quickstart)
 
 ### Accessing site
 The site is hosted on [blog.lackshan.dev](https://blog.lackshan.dev)
