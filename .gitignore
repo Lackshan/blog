@@ -78,6 +78,7 @@ Temporary Items
 /test/version_tmp/
 /tmp/
 Gemfile.lock
+vendor/
 
 # Used by dotenv library to load environment variables.
 # .env
