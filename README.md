@@ -10,11 +10,13 @@ First follow the instructions [here](https://jekyllrb.com/docs/installation/) to
 ### Serve site locally for testing
 To host the site locally run:
 ```bash
+cd jekyll_site
 JEKYLL_ENV="production" bundle exec jekyll serve
 ```
 
 ### Generate static files for hosting
 ```bash
+cd jekyll_site
 JEKYLL_ENV="production" bundle exec jekyll build
 ```
 ## Deploy
