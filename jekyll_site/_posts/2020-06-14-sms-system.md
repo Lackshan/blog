@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raspberry Pi SMS Server"
+title: "SMS Server"
 date: 2020-06-18 18:05:00
 categories: 
 ---
