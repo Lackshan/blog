@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Setting Up MangoHud"
-date: 2019-11-21 10:51:00
+date: 2020-07-06 00:18:00
 categories: 
 ---
 During my time benchmarking and [undervolting my RX 480]({% post_url 2020-07-04-undervolting-rx480 %}), I stumbled upon [MangoHud](https://github.com/flightlessmango/MangoHud). This post will detail how I installed, configured and enabled it:
@@ -11,17 +11,18 @@ Installation will vary by distro but since I'm using Fedora 31, I ran:
 sudo dnf install mangohud
 ```
 
-Once that's done, we will need to create a config file. I opted for a global config but you can choose to make a per application config instead. Create the file in  ```~/.config/MangoHud``` by running:
+
+Once that's done, we will need to create a config file. I opted for a global config but you can choose to make a per application config instead. Firstly, we will create the directory ```~/.config/MangoHud``` by running:
 ```bash
 mkdir ~/.config/MangoHud
 ```
-to create the directory, then run:
+Then to create and edit the config, we run:
 ```bash
 nano ~/.config/MangoHud/MangoHud.conf
 ```
-to edit the config.
 
-An example config is available in the [MangoHud repo](https://github.com/flightlessmango/MangoHud/blob/master/bin/MangoHud.conf). Here's my config:
+
+An example config is available in the [MangoHud repo](https://github.com/flightlessmango/MangoHud/blob/master/bin/MangoHud.conf). Here's my edited config:
 ```
 ################ PERFORMANCE #################
 
@@ -85,11 +86,26 @@ reload_cfg=Shift_L+F4
 ################## LOG #################
 output_file=/home/lackshan/Documents/MangoHudLogs/MangoHudLogfile
 ```
-Copy and paste it into your config file and if you're using ```nano``` press ```Ctrl + X``` and then press ```Y``` to save and exit.
+Copy and paste it into your config file and save it (if you're using ```nano``` press ```Ctrl + X``` and then press ```Y``` to save and exit).
 
-Now all that's left is for you to enable MangoHud in your game of choice. If you're using Steam, right click on a game and click on ```Properties...```, then click on ```SET LAUNCH OPTIONS...``` and type the following:
+Now all that's left is for you to enable MangoHud in your game of choice. If you're using Steam, right click on a game and click on ```Properties...```:
+![game_properties](/assets/game_properties.png)
+
+The following window should appear:
+![properties_window](/assets/properties_window.png)
+
+
+Click on ```SET LAUNCH OPTIONS...``` and the following window should appear:
+![launch_options_window](/assets/launch_options_window.png)
+
+Type the following:
 ```
 mangohud %command%
 ``` 
+and click on ```OK```.
 
-Now all you have to do is launch the game and MangoHud should be enabled by default. To toggle it off you can press ```RShift + F12```.
+Launch the game and MangoHud will be enabled:
+![hitman2_mangohud](/assets/hitman2_mangohud.jpg)
+
+
+To toggle it off you can press ```RShift + F12```.
