@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en_US">
+	<head>
+		<meta charset="utf-8">
+		<meta https-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>First Post</title>
+		<meta name="description" content="This blog is meant to be a log of my various technical projects and it’s an interesting way for me to try my hand at CI and cloud hosting. There’s a link to ...">
+		<link rel="stylesheet" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Sanchez:400,400italic' rel='stylesheet' type='text/css'>
+		<link rel="canonical" href="/first-post.html">
+		<link rel="alternate" type="application/rss+xml" title="Where's My Documentation?" href="feed.xml">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	</head>
+	<body>
+		<header class="site-header">
+		
+			<h1>
+				<a class="site-title" href="/" title="Where's My Documentation?" rel="home">Where's My Documentation?</a>
+			</h1>
+		
+		</header>
+		<div class="content" role="main">
+			<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+	<header class="post-header">
+		<time class="post-date" datetime="2019-11-21T10:51:00+00:00">Nov 21, 2019</time>
+		<h1 class="post-title">First Post</h1>
+	</header>
+	<p>This blog is meant to be a log of my various technical projects and it’s an interesting way for me to try my hand at CI and cloud hosting. There’s a link to my GitHub profile on the bottom of the page if you’d like the source for this blog or any of my other projects.</p>
+
+</article>
+<a id="go-top" href="#" onclick="scrollToTop();return false">&uarr;</a>
+		</div>
+		
+		<footer class="site-footer">
+			<p><a href="https://github.com/Lackshan">Github</a></p>
+			<small class="copyright">Copyright &copy; Lackshan | Theme by <a href="https://github.com/oneohthree/sudo-jekyll">oneohthree.</a></small>
+		</footer>
+		<script>
+			document.body.onscroll = function() {
+				var e = document.getElementById('go-top');
+				if (document.body.scrollTop !=0 || document.documentElement.scrollTop != 0) {
+					e.style.right = '.5em';
+				}
+				else e.style.right = '-1em';
+			}
+			var timeOut;
+			function scrollToTop() {
+				if (document.body.scrollTop !=0 || document.documentElement.scrollTop != 0) {
+					window.scrollBy(0,-50);
+					timeOut=setTimeout('scrollToTop()',5);
+				}
+				else clearTimeout(timeOut);
+			}
+		</script>
+	</body>
+</html>

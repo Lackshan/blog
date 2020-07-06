@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en_US">
+	<head>
+		<meta charset="utf-8">
+		<meta https-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SMS Server</title>
+		<meta name="description" content="About 10 months ago I created an SMS Server for my father’s clinic so that he could send his patients appointment reminders. The SMS Server was a Raspberry P...">
+		<link rel="stylesheet" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Sanchez:400,400italic' rel='stylesheet' type='text/css'>
+		<link rel="canonical" href="/sms-system.html">
+		<link rel="alternate" type="application/rss+xml" title="Where's My Documentation?" href="feed.xml">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	</head>
+	<body>
+		<header class="site-header">
+		
+			<h1>
+				<a class="site-title" href="/" title="Where's My Documentation?" rel="home">Where's My Documentation?</a>
+			</h1>
+		
+		</header>
+		<div class="content" role="main">
+			<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+	<header class="post-header">
+		<time class="post-date" datetime="2020-06-18T18:05:00+00:00">Jun 18, 2020</time>
+		<h1 class="post-title">SMS Server</h1>
+	</header>
+	<p>About 10 months ago I created an SMS Server for my father’s clinic so that he could send his patients appointment reminders. The SMS Server was a Raspberry Pi 3 with a <a href="https://www.waveshare.com/gsm-gprs-gnss-hat.htm">Waveshare GSM HAT</a> that ran a cron job every morning which would execute a python script. The Python script would check a Google Calendar for appointments, and if there were an upcoming appointment, it would remind the patient. I opted to use Google Calendar as it meant I wouldn’t have to design a front end for the system and because the clinic staff had some experience with it. The SMS Server worked flawlessly for 6 months, at which point a combination of power outages and accidental hard shutdowns corrupted the SD Card. Since I’m in the UK and my father is in Malaysia, reflashing the SD Card was a little problematic. So the system lay dormant, waiting to be fixed. Since I’m free again, I thought I’d take another crack at it. I initially wanted to replace it with a DigitalOcean droplet and Twillio, however, Twillio charges $0.049 per SMS whereas Celcom Malaysia only charges $0.021 per SMS. Unfortunately, Celcom’s API isn’t public, so I’ve contacted them about it and am currently waiting for a reply.</p>
+
+<p>Since the original code was hacked together and not documented (why do you think this blog is called Where’s My Documention?), I will be rewriting the whole system from scratch. It will allow the user to choose between sending SMSs through a Raspberry Pi or Celcom’s Omni service. You can find the repository <a href="https://github.com/Lackshan/GCalSMS">here</a>.</p>
+
+
+</article>
+<a id="go-top" href="#" onclick="scrollToTop();return false">&uarr;</a>
+		</div>
+		
+		<footer class="site-footer">
+			<p><a href="https://github.com/Lackshan">Github</a></p>
+			<small class="copyright">Copyright &copy; Lackshan | Theme by <a href="https://github.com/oneohthree/sudo-jekyll">oneohthree.</a></small>
+		</footer>
+		<script>
+			document.body.onscroll = function() {
+				var e = document.getElementById('go-top');
+				if (document.body.scrollTop !=0 || document.documentElement.scrollTop != 0) {
+					e.style.right = '.5em';
+				}
+				else e.style.right = '-1em';
+			}
+			var timeOut;
+			function scrollToTop() {
+				if (document.body.scrollTop !=0 || document.documentElement.scrollTop != 0) {
+					window.scrollBy(0,-50);
+					timeOut=setTimeout('scrollToTop()',5);
+				}
+				else clearTimeout(timeOut);
+			}
+		</script>
+	</body>
+</html>

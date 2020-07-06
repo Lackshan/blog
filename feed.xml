@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-07-06T00:23:34+00:00</updated><id>/feed.xml</id><title type="html">Where’s My Documentation?</title><subtitle>A simple blog to showcase my various projects</subtitle><entry><title type="html">Undervolting RX480</title><link href="/undervolting-rx480.html" rel="alternate" type="text/html" title="Undervolting RX480" /><published>2020-07-07T00:18:00+00:00</published><updated>2020-07-07T00:18:00+00:00</updated><id>/undervolting-rx480</id><content type="html" xml:base="/undervolting-rx480.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Setting Up MangoHud</title><link href="/setting-up-mangohud.html" rel="alternate" type="text/html" title="Setting Up MangoHud" /><published>2020-07-06T00:18:00+00:00</published><updated>2020-07-06T00:18:00+00:00</updated><id>/setting-up-mangohud</id><content type="html" xml:base="/setting-up-mangohud.html">&lt;p&gt;During my time benchmarking and &lt;a href=&quot;/undervolting-rx480.html&quot;&gt;undervolting my RX 480&lt;/a&gt;, I stumbled upon &lt;a href=&quot;https://github.com/flightlessmango/MangoHud&quot;&gt;MangoHud&lt;/a&gt;. This post will detail how I installed, configured and enabled it:&lt;/p&gt;
+
+&lt;p&gt;Installation will vary by distro but since I’m using Fedora 31, I ran:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dnf &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;mangohud
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once that’s done, we will need to create a config file. I opted for a global config but you can choose to make a per application config instead. Firstly, we will create the directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.config/MangoHud&lt;/code&gt; by running:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; ~/.config/MangoHud
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Then to create and edit the config, we run:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano ~/.config/MangoHud/MangoHud.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;An example config is available in the &lt;a href=&quot;https://github.com/flightlessmango/MangoHud/blob/master/bin/MangoHud.conf&quot;&gt;MangoHud repo&lt;/a&gt;. Here’s my edited config:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;################ PERFORMANCE #################
+
+### Limit the application FPS
+# fps_limit=
+
+### VSYNC [0-3] 0 = adaptive; 1 = off; 2 = mailbox; 3 = on
+vsync=1
+
+### OpenGL VSYNC [0-N] 0 = off; &amp;gt;=1 = wait for N v-blanks, N &amp;gt; 1 acts as a fps limiter (fps = display refresh rate / N)
+gl_vsync=0
+
+################### VISUAL ###################
+cpu_stats
+cpu_temp
+cpu_text = CPU
+
+ram
+
+gpu_stats
+gpu_temp
+gpu_core_clock
+gpu_mem_clock
+gpu_power
+gpu_text = GPU
+
+vram
+
+vulkan_driver
+
+### Display loaded MangoHud architecture
+# arch
+
+### Display the frametime line graph
+frame_timing
+histogram
+
+font_size=24
+# font_scale_media_player = 0.55
+
+position=top-left
+background_alpha=0.5
+
+### Color customization
+text_color=FFFFFF
+gpu_color=2E9762
+cpu_color=2E97CB
+vram_color=AD64C1
+ram_color=C26693
+engine_color=EB5B5B
+io_color=A491D3
+frametime_color=00FF00
+background_color=020202
+media_player_color=FFFFFF
+
+################## INTERACTION #################
+toggle_hud=Shift_R+F12
+toggle_logging=Shift_L+F2
+reload_cfg=Shift_L+F4
+
+################## LOG #################
+output_file=/home/lackshan/Documents/MangoHudLogs/MangoHudLogfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Copy and paste it into your config file and save it (if you’re using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nano&lt;/code&gt; press &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl + X&lt;/code&gt; and then press &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Y&lt;/code&gt; to save and exit).&lt;/p&gt;
+
+&lt;p&gt;Now all that’s left is for you to enable MangoHud in your game of choice. If you’re using Steam, right click on a game and click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Properties...&lt;/code&gt;: 
+&lt;img src=&quot;/assets/img/2020-07-04-setting-up-mangohud/game_properties.png&quot; alt=&quot;game_properties&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The following window should appear: 
+&lt;img src=&quot;/assets/img/2020-07-04-setting-up-mangohud/properties_window.png&quot; alt=&quot;properties_window&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SET LAUNCH OPTIONS...&lt;/code&gt; and the following window should appear: 
+&lt;img src=&quot;/assets/img/2020-07-04-setting-up-mangohud/launch_options_window.png&quot; alt=&quot;launch_options_window&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Type the following:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mangohud %command%
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;and click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OK&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Launch the game and MangoHud will be enabled: 
+&lt;img src=&quot;/assets/img/2020-07-04-setting-up-mangohud/hitman2_mangohud.jpg&quot; alt=&quot;hitman2_mangohud&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To toggle it off you can press &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RShift + F12&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">During my time benchmarking and undervolting my RX 480, I stumbled upon MangoHud. This post will detail how I installed, configured and enabled it:</summary></entry><entry><title type="html">SMS Server</title><link href="/sms-system.html" rel="alternate" type="text/html" title="SMS Server" /><published>2020-06-18T18:05:00+00:00</published><updated>2020-06-18T18:05:00+00:00</updated><id>/sms-system</id><content type="html" xml:base="/sms-system.html">&lt;p&gt;About 10 months ago I created an SMS Server for my father’s clinic so that he could send his patients appointment reminders. The SMS Server was a Raspberry Pi 3 with a &lt;a href=&quot;https://www.waveshare.com/gsm-gprs-gnss-hat.htm&quot;&gt;Waveshare GSM HAT&lt;/a&gt; that ran a cron job every morning which would execute a python script. The Python script would check a Google Calendar for appointments, and if there were an upcoming appointment, it would remind the patient. I opted to use Google Calendar as it meant I wouldn’t have to design a front end for the system and because the clinic staff had some experience with it. The SMS Server worked flawlessly for 6 months, at which point a combination of power outages and accidental hard shutdowns corrupted the SD Card. Since I’m in the UK and my father is in Malaysia, reflashing the SD Card was a little problematic. So the system lay dormant, waiting to be fixed. Since I’m free again, I thought I’d take another crack at it. I initially wanted to replace it with a DigitalOcean droplet and Twillio, however, Twillio charges $0.049 per SMS whereas Celcom Malaysia only charges $0.021 per SMS. Unfortunately, Celcom’s API isn’t public, so I’ve contacted them about it and am currently waiting for a reply.&lt;/p&gt;
+
+&lt;p&gt;Since the original code was hacked together and not documented (why do you think this blog is called Where’s My Documention?), I will be rewriting the whole system from scratch. It will allow the user to choose between sending SMSs through a Raspberry Pi or Celcom’s Omni service. You can find the repository &lt;a href=&quot;https://github.com/Lackshan/GCalSMS&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">About 10 months ago I created an SMS Server for my father’s clinic so that he could send his patients appointment reminders. The SMS Server was a Raspberry Pi 3 with a Waveshare GSM HAT that ran a cron job every morning which would execute a python script. The Python script would check a Google Calendar for appointments, and if there were an upcoming appointment, it would remind the patient. I opted to use Google Calendar as it meant I wouldn’t have to design a front end for the system and because the clinic staff had some experience with it. The SMS Server worked flawlessly for 6 months, at which point a combination of power outages and accidental hard shutdowns corrupted the SD Card. Since I’m in the UK and my father is in Malaysia, reflashing the SD Card was a little problematic. So the system lay dormant, waiting to be fixed. Since I’m free again, I thought I’d take another crack at it. I initially wanted to replace it with a DigitalOcean droplet and Twillio, however, Twillio charges $0.049 per SMS whereas Celcom Malaysia only charges $0.021 per SMS. Unfortunately, Celcom’s API isn’t public, so I’ve contacted them about it and am currently waiting for a reply.</summary></entry><entry><title type="html">Setting up GitHub Pages with a Namecheap .dev domain</title><link href="/githubpages-dev.html" rel="alternate" type="text/html" title="Setting up GitHub Pages with a Namecheap .dev domain" /><published>2019-11-22T12:22:34+00:00</published><updated>2019-11-22T12:22:34+00:00</updated><id>/githubpages-dev</id><content type="html" xml:base="/githubpages-dev.html">&lt;p&gt;I ran into some trouble trying to get GitHub Pages to work with this domain. I was unable to enforce HTTPS (a requirement for .dev domains) resulting in the site being inaccessible due to an SSL error. Upon further investigation it appeared the problem was twofold: firstly the site referenced assets over HTTP and secondly I needed to create A records pointing to the IP addresses for GitHub Pages:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Upon solving these problems I was able to get GitHub Pages to enforce HTTPS but actually accessing the site still gave me an SSL error. The culprit turned out to be the CNAME record that Namecheap creates by default for their &lt;a href=&quot;http://parkingpage.namecheap.com/&quot;&gt;parking page&lt;/a&gt; because it’s only available over HTTP! Deleting it got everything working.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: Delete the CNAME record pointing your domain to Namecheap’s parking page.&lt;/p&gt;</content><author><name></name></author><summary type="html">I ran into some trouble trying to get GitHub Pages to work with this domain. I was unable to enforce HTTPS (a requirement for .dev domains) resulting in the site being inaccessible due to an SSL error. Upon further investigation it appeared the problem was twofold: firstly the site referenced assets over HTTP and secondly I needed to create A records pointing to the IP addresses for GitHub Pages: 185.199.108.153 185.199.109.153 185.199.110.153 185.199.111.153</summary></entry><entry><title type="html">First Post</title><link href="/first-post.html" rel="alternate" type="text/html" title="First Post" /><published>2019-11-21T10:51:00+00:00</published><updated>2019-11-21T10:51:00+00:00</updated><id>/first-post</id><content type="html" xml:base="/first-post.html">&lt;p&gt;This blog is meant to be a log of my various technical projects and it’s an interesting way for me to try my hand at CI and cloud hosting. There’s a link to my GitHub profile on the bottom of the page if you’d like the source for this blog or any of my other projects.&lt;/p&gt;</content><author><name></name></author><summary type="html">This blog is meant to be a log of my various technical projects and it’s an interesting way for me to try my hand at CI and cloud hosting. There’s a link to my GitHub profile on the bottom of the page if you’d like the source for this blog or any of my other projects.</summary></entry></feed>

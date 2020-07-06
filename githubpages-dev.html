@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en_US">
+	<head>
+		<meta charset="utf-8">
+		<meta https-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Setting up GitHub Pages with a Namecheap .dev domain</title>
+		<meta name="description" content="I ran into some trouble trying to get GitHub Pages to work with this domain. I was unable to enforce HTTPS (a requirement for .dev domains) resulting in the ...">
+		<link rel="stylesheet" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Sanchez:400,400italic' rel='stylesheet' type='text/css'>
+		<link rel="canonical" href="/githubpages-dev.html">
+		<link rel="alternate" type="application/rss+xml" title="Where's My Documentation?" href="feed.xml">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	</head>
+	<body>
+		<header class="site-header">
+		
+			<h1>
+				<a class="site-title" href="/" title="Where's My Documentation?" rel="home">Where's My Documentation?</a>
+			</h1>
+		
+		</header>
+		<div class="content" role="main">
+			<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+	<header class="post-header">
+		<time class="post-date" datetime="2019-11-22T12:22:34+00:00">Nov 22, 2019</time>
+		<h1 class="post-title">Setting up GitHub Pages with a Namecheap .dev domain</h1>
+	</header>
+	<p>I ran into some trouble trying to get GitHub Pages to work with this domain. I was unable to enforce HTTPS (a requirement for .dev domains) resulting in the site being inaccessible due to an SSL error. Upon further investigation it appeared the problem was twofold: firstly the site referenced assets over HTTP and secondly I needed to create A records pointing to the IP addresses for GitHub Pages:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+</code></pre></div></div>
+
+<p>Upon solving these problems I was able to get GitHub Pages to enforce HTTPS but actually accessing the site still gave me an SSL error. The culprit turned out to be the CNAME record that Namecheap creates by default for their <a href="http://parkingpage.namecheap.com/">parking page</a> because it’s only available over HTTP! Deleting it got everything working.</p>
+
+<p><strong>TL;DR</strong>: Delete the CNAME record pointing your domain to Namecheap’s parking page.</p>
+
+</article>
+<a id="go-top" href="#" onclick="scrollToTop();return false">&uarr;</a>
+		</div>
+		
+		<footer class="site-footer">
+			<p><a href="https://github.com/Lackshan">Github</a></p>
+			<small class="copyright">Copyright &copy; Lackshan | Theme by <a href="https://github.com/oneohthree/sudo-jekyll">oneohthree.</a></small>
+		</footer>
+		<script>
+			document.body.onscroll = function() {
+				var e = document.getElementById('go-top');
+				if (document.body.scrollTop !=0 || document.documentElement.scrollTop != 0) {
+					e.style.right = '.5em';
+				}
+				else e.style.right = '-1em';
+			}
+			var timeOut;
+			function scrollToTop() {
+				if (document.body.scrollTop !=0 || document.documentElement.scrollTop != 0) {
+					window.scrollBy(0,-50);
+					timeOut=setTimeout('scrollToTop()',5);
+				}
+				else clearTimeout(timeOut);
+			}
+		</script>
+	</body>
+</html>
