@@ -89,14 +89,14 @@ output_file=/home/lackshan/Documents/MangoHudLogs/MangoHudLogfile
 Copy and paste it into your config file and save it (if you're using ```nano``` press ```Ctrl + X``` and then press ```Y``` to save and exit).
 
 Now all that's left is for you to enable MangoHud in your game of choice. If you're using Steam, right click on a game and click on ```Properties...```:
-![game_properties](/assets/game_properties.png)
+![game_properties](/assets/img/2020-07-04-setting-up-mangohud/game_properties.png)
 
 The following window should appear:
-![properties_window](/assets/properties_window.png)
+![properties_window](/assets/img/2020-07-04-setting-up-mangohud/properties_window.png)
 
 
 Click on ```SET LAUNCH OPTIONS...``` and the following window should appear:
-![launch_options_window](/assets/launch_options_window.png)
+![launch_options_window](/assets/img/2020-07-04-setting-up-mangohud/launch_options_window.png)
 
 Type the following:
 ```
@@ -105,7 +105,7 @@ mangohud %command%
 and click on ```OK```.
 
 Launch the game and MangoHud will be enabled:
-![hitman2_mangohud](/assets/hitman2_mangohud.jpg)
+![hitman2_mangohud](/assets/img/2020-07-04-setting-up-mangohud/hitman2_mangohud.jpg)
 
 
 To toggle it off you can press ```RShift + F12```.
